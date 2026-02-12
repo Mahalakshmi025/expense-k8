@@ -28,6 +28,14 @@ spec:
       containers:
       - name: frontend
         image: pmahalakshmi25/frontend:v1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "100m"
+          #limits sholud be greater than or equal to requests
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
 
 ---
 apiVersion: v1
