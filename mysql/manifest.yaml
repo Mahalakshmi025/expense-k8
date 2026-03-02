@@ -28,6 +28,15 @@ spec:
       containers:
       - name: mysql
         image: pmahalakshmi25/mysql:v1
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+            #limits should be greater than or equal to requests
+          limits:
+            memory: "128Mi"
+            cpu: "100m"
+          
 
 ---
 apiVersion: v1
