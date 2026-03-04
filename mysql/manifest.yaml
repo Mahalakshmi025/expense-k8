@@ -28,6 +28,16 @@ spec:
       containers:
       - name: mysql
         image: pmahalakshmi25/mysql:v1
+        readinessProbe:
+          tcpSocket:
+            port: 3306
+          initialDelaySeconds: 15
+          periodSeconds: 10
+        readinessProbe:
+          tcpSocket:
+            port: 3306
+          initialDelaySeconds: 15
+          periodSeconds: 10
         
           
 
