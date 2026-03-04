@@ -90,7 +90,7 @@ data:
 
           }
 
-      }
+        }
     
 ---
 apiVersion: apps/v1
