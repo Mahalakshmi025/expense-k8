@@ -151,7 +151,7 @@ metadata:
   name: frontend
   namespace: expense
 spec:
-  type: LoadBalancer
+  #type: LoadBalancer
   selector:
     app: frontend
     tier: web
@@ -176,3 +176,16 @@ spec:
   minReplicas: 1
   maxReplicas: 5
   targetCPUUtilizationPercentage: 15 #usually 75 in the real env
+---
+apiVersion: elbv2.k8s.aws/v1beta1
+kind: TargetGroupBinding
+metadata:
+  name: frontend
+  namespace: expense
+spec:
+  serviceRef:
+    name: frontend # route traffic to the frontend service
+    port: 80
+  targetGroupARN: arn:aws:elasticloadbalancing:us-east-1:128759047428:targetgroup/expense-dev/be9e745361e63053
+  #vpcID: <vpcID>
+  targetType: ip
